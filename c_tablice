@@ -1,0 +1,72 @@
+#include <stdio.h>
+	//prosta tablica koszyk
+	// wypisze nam jaki jest 3 element tablicy
+int main() {
+  int koszyk[5] = {1, 5, 9, 4, 2};//koszyk nazwa naszej tablicy [ilosc] elementów tablicy
+	// {} możemy wpisać konkretne wartościw nawiasach.
+    printf("3 element tablicy to: %d", koszyk[2]);// wyswietli napis "3 element tablicy to: 9"
+    return 0;
+}
+---------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#define ROZMIAR 5	//definiowanie stałej wartości w tym wypadku dla tablicy
+	//Używając pętli for wypisuje kolejny element tablicy i jego wartość
+int main()
+{
+    int koszyk [ROZMIAR] = {5,4,7,9,1}; //można zamiast ROZMIAR wpisać 5 jeśli nie użyjemy #define
+    int l;      //licznik petli może być dowolne słowo znak
+    for(l=0; l< ROZMIAR; l++) //petla zaczyna od 0 zwieksza sie o 1 aż do 5
+    {
+        printf("Element tablicy o indeksie nr :%d ma wartość: %d \n", l, koszyk[l]);
+    } // wypisze kolejne elementyi ich wartości znajdujące sie w tablicy  o nazwie "koszyk"
+    return 0;
+}
+--------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#define ROZMIAR 5
+	//zapis odczyt tablicy
+int main()
+{
+    int koszyk[ROZMIAR] = {0};//zerowanie tablicy
+    koszyk[0]=2;  //podajemy wartość 0 pozycji tablicy o nazwie koszyk
+    koszyk[1]=3;    ////podajemy wartość 1 pozycji tablicy o nazwie koszyk
+    int l;      //licznik petli
+    for(l=0; l< ROZMIAR; l++)
+    {
+        printf("Element tablicy o indeksie nr :%d ma wartość: %d \n", l, koszyk[l]);
+    } //wyswietli że pozycja 0 ma wrtosc 2  pozycja 1 ma wartosc 3 pozostałe wartosc 0
+
+
+    /*można wyświetlić poszczególne wartości bez uzycia petli for:
+     printf("Element tablicy o indeksie nr :0 ma wartość: %d \n", koszyk[0]);
+     printf("Element tablicy o indeksie nr :1 ma wartość: %d \n", koszyk[1]);
+     printf("Element tablicy o indeksie nr :2 ma wartość: %d \n", koszyk[2]);
+     printf("Element tablicy o indeksie nr :3 ma wartość: %d \n", koszyk[3]);
+     printf("Element tablicy o indeksie nr :4 ma wartość: %d \n", koszyk[4]);
+     */
+    return 0;
+}
+-------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#define ilosc 5 //definijemy ilośc pozycji w tablicy kalorie
+	//licznik kalorii
+	//używając petli for oraz printf scanf wpisuje wartosci do tablicy i sumuje je
+int main()
+{   int kalorie [ilosc] = {0};// zerowanie tablicy
+    int i, suma;
+    suma=0; //należy przypisać 0 aby uniknąć błędów
+    puts("program liczacy ilość kalorii");
+    for(i=0; i< ilosc; i++) //petla pobierająca poszczególne wartości kalorii
+    {
+        printf("Podaj wartosc  kalorii w daniu nr %d \n", i+1);//i+1 poniwaz zaczynamy od pozycji 0
+        scanf("%d", &kalorie[i]);
+        suma = suma + kalorie[i]; // dodaje wpisane wartości
+    }
+        puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        printf("Twój posiłek zawierał łącznie %d kalorii \n", suma);
+        puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    return 0;
+}

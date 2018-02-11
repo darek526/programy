@@ -1,0 +1,131 @@
+#include <stdio.h>
+	//PĘTLA FOR
+	// program wypisz 10 razy Hello, World numerując każdą linie od 1 do 10
+int main() {
+    int i;// licznik petli for można wybrać dowolne słowo lub literę
+
+    for(i=0; i<10; i++) //początkowy licznik =0;
+   //wykonuje petle do chwili gdy spełni wartość mniejszy od 10; zwiekszenie licznika +1
+    {
+        printf("%i Hello, World!\n", i+1); //ciało funkcji
+    } //%i licznik posłuż za numeracje ale piszemy i+1 żeby pierwsz linia nie miała nr 0
+ puts("-------------------------------------------");
+    //wypisze 10 razy Hello, World numerując każdą linie od 10 do 1
+    for(i=10; i>0; i--) //początkowy licznik =10;
+        //wykonuje petle do chwili gdy spełni wartość i jest większy od 0; zmniejszenie licznika -1
+    {
+        printf("%i Hello, World!\n", i); //ciało funkcji
+    }
+ puts("-------------------------------------------");
+    //wypisze 26 razy Hello, World literując każdą linie od A do Z
+    for(i='A'; i<='Z'; i++) //początkowy licznik = A;
+        //wykonuje petle do chwili gdy będzie mniejszy równe Z; zwiekszenie licznika +1
+    {
+        printf("%c Hello, World!\n", i); //ciało funkcji
+    }   //printf("%c \n", i); wypiszw tylko litery od A do Z w pionowej kolumnie
+    return 0;
+}
+---------------------------------------------------------------------------------------------
+#include <stdio.h>
+	//zagnieżdżenie pętli for w drugiej pętli for, tabliczka mnożenia
+int main()
+{   int kolumna, wiersz;
+    for (wiersz=1; wiersz<=10; wiersz++)
+    {
+        for (kolumna = 1; kolumna <= 10; kolumna++)
+        {   if(kolumna*wiersz<10)
+                printf(" "); // dodaje spacje przy liczbach jednocyfrowych dla estetyki
+            printf("%i ", kolumna*wiersz);
+        }
+        puts("\n"); //pusta linia
+    }
+    return 0;
+}
+-----------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+	//PĘTLA WHILE
+		//wypisuje 10 razy Hello, World! numerując kazdą linie
+int main()
+{
+   int licznik=1;
+   while(licznik<=10) 		//najpierw sprawdzenie warunku ile razy ma się wykonac petla. Uwag jeśli wartość w nawiasie 
+				// byłaby mniejsza od licznika, pętla nie wykona się wogóle.
+	{
+        	printf("%i Hello, World!\n", licznik); //wypisuje tekst z podaniem licznika (numeruje każdą linie)
+       		licznik++; 	//zwiększa licznik o 1 za każdym przejściem pętli
+				
+    	}
+        return 0;
+}
+-----------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+	//PĘTLA DO WHILE	
+	// pętla do whila najpierw wykonuje działanie a później sprawdza licznik(warunek)
+int main()
+    {
+        int licznik=1; 	//licznik początkowy
+        do 	// jeśli tu byłoby while(licznik < 1) program zakończyłby prace nic nie robiąc
+        {
+            printf("%i Hello, World!\n", licznik);	// ciało funkcji wykonanie działania
+            licznik++;  	//licznik zwiększamy o 1
+        }
+        while (licznik < 1);	//sprawdzenie warunku(ile razy ma wykonać działanie) czy licznik<1. Program kończy prace licznik<1
+			//gdy wpiszemy licznik<2 również program wykona 1 raz działanie i po nim zwiększy licznik
+			//+1 i wtedy licznik wyniesie 2 i jw.
+    return 0;
+}
+----------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+// Kalkulator case
+int main()
+{
+    char dzialanie;
+    double a, b, iloczyn, iloraz;
+    puts("**************KALKULATOR****************");
+    puts("-/+*-/+*-/+*-/+*-/+*-/+*-/+*-/+*-/+*-/+*");
+    printf("Wybierz dzaialanie  \n dzielenie [/]\n mnożenie[*]\n odejmowanie[-]\n dodawanie[+] \n ");
+    scanf("%c", &dzialanie);
+    printf("Podaj liczbe a: \n");
+    scanf("%lf", &a);
+    printf("Podaj liczbe b: \n");
+    scanf("%lf", &b);
+    switch (dzialanie)
+    {
+        case '+':
+            printf(" Suma a+b =%f \n ", a + b);
+            break;
+        case '-':
+            printf("Roznica a - b = %f \n ", a - b); /* wyswietla a-b= wynik odejmowania nie trzeba wcześniej
+							 deklarować odpowiedniej zmiennej jak w
+							 przypadku iloczyn i iloraz*/
+            break;
+        case '*':
+            iloczyn = a * b;
+            printf("Iloczyn %f * %f =%f \n ", a, b, iloczyn); /* wyswietla wybrane wcześniej wartości liczby a i b  trzeba wcześniej
+                                                         zadeklarować zmienną iloczyn
+                                                        ważne aby najpierw napisać iloczyn = a*b odrotana kolejność poinformuje o błędzie  */
+
+            break;
+        case '/':
+            iloraz = a / b;
+            if (b!=0)
+            {
+                printf("Iloraz %f/%f=%f \n ",a, b, iloraz);
+            }
+            else
+            {
+                printf(" Nie mogę podzielić %f przez 0 działanie niewykonalne \n ", a);
+            }
+
+            break;
+        default:
+            printf("Błędny znak nie obsługuje takiego działania \n ");
+            break;
+    }
+    return 0;
+}
+
